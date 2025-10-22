@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<title>Movie Details</title>
+</head>
+<body>
+<h2>{{ movie.title }}</h2>
+
+<p><strong>Genre:</strong> {{ movie.genre }}</p>
+<p><strong>Date:</strong> {{ movie.date }}</p>
+<p><strong>Description:</strong> {{ movie.description }}</p>
+
+<a href="{% url 'edit_movie' movie.pk %}">Edit</a>
+<a href="{% url 'delete_movie' movie.pk %}">Delete</a>
+<a href="{% url 'movie_list' %}">Back to Movies</a>
+
+</body>
+</html>

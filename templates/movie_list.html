@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<title>Movies</title>
+</head>
+<body>
+<h2>Movies</h2>
+
+<a href="{% url 'add_movie' %}">Add New Movie</a>
+
+{%  for movie in movies  %}
+    <p>
+        <strong>{{ movie.title }}</strong> - {{ movie.genre }} ({{ movie.date }})
+        <a href="{% url 'movie_detail' movie.pk %}">View</a>
+        <a href="{% url 'edit_movie' movie.pk %}">Edit</a>
+        <a href="{% url 'delete_movie' movie.pk %}">Delete</a>
+    </p>
+{%  endfor  %}
+
+</body>
+</html>
