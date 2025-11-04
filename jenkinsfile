@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: ' YOUR GITHUB URL'
+                git branch: 'main', url: 'https://github.com/khamis9/csc263'
             }
         }
         
