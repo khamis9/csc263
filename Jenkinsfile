@@ -29,11 +29,14 @@ pipeline {
         stage('Deploy to Minikube') {
             steps {
                 bat '''
-                REM === Apply the updated deployment manifest ===
-                kubectl apply -f deployment.yaml
+                REM === Set KUBECONFIG to minikube's config ===
+                set KUBECONFIG=%USERPROFILE%\\.minikube\\profiles\\minikube\\client.crt
+                
+                REM === Use minikube kubectl context ===
+                minikube kubectl -- apply -f deployment.yaml
                 
                 REM === Ensure the rollout completes ===
-                kubectl rollout status deployment/django-deployment
+                minikube kubectl -- rollout status deployment/django-deployment
                 '''
             }
         }
